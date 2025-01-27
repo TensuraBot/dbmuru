@@ -1,0 +1,66 @@
+/* Reset */
+body, html, ul, li, h1, h2, h3, h4, h5, h6, p, a {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+/* Global Font */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f7f8fc;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Links */
+a {
+  color: #0070f3;
+  transition: color 0.3s ease;
+}
+a:hover {
+  color: #005bb5;
+}
+
+/* Buttons */
+button {
+  cursor: pointer;
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+button:hover {
+  background-color: #005bb5;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar Styling */
+nav {
+  font-family: 'Arial', sans-serif;
+}
+
+/* Section Spacing */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px auto;
+}
+
+/* Card Design */
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  transition: transform 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+}
