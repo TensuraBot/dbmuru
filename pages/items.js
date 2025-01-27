@@ -7,7 +7,7 @@ export default function Items() {
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const res = await axios.get("https://your-backend.vercel.app/items");
+        const res = await axios.get("https://dbmuru.vercel.app/items");
         setItems(res.data);
       } catch (err) {
         console.error(err);
