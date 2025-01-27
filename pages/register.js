@@ -15,7 +15,7 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("https://your-backend.vercel.app/register", formData);
+      const res = await axios.post("https://tensuradb.vercel.app/register", formData);
       toast.success("Registrasi berhasil!");
     } catch (err) {
       toast.error("Gagal registrasi: " + err.response.data);
