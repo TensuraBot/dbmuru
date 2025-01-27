@@ -27,11 +27,6 @@ app.prepare().then(() => {
   server.use("/user", userRoutes);
   server.use("/items", itemRoutes);
 
-  // Default route untuk Next.js pages
-  server.all("*", (req, res) => {
-    return handle(req, res);  // Next.js yang menangani rute lainnya
-  });
-
   const PORT = process.env.PORT || 3000;
   server.listen(PORT, (err) => {
     if (err) throw err;
