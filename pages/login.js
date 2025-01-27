@@ -14,7 +14,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("https://your-backend.vercel.app/login", formData);
+      const res = await axios.post("https://tensuradb.vercel.app/login", formData);
       localStorage.setItem("token", res.data.token);
       toast.success("Login berhasil!");
       router.push("/dashboard");
