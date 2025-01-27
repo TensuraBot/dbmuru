@@ -15,7 +15,7 @@ export default function Dashboard() {
       }
 
       try {
-        const res = await axios.get("https://your-backend.vercel.app/user", {
+        const res = await axios.get("https://dbmuru.vercel.app/user", {
           headers: { Authorization: token },
         });
         setUser(res.data);
