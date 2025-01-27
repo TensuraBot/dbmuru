@@ -1,40 +1,24 @@
 require("dotenv").config();
 const express = require("express");
-const next = require("next");
 const mongoose = require("mongoose");
 const authRoutes = require("./routes/auth");
 const userRoutes = require("./routes/user");
 const itemRoutes = require("./routes/items");
 
-const dev = process.env.NODE_ENV !== "production";
-const app = next({ dev });
-const handle = app.getRequestHandler();
+const app = express();
+app.use(express.json());
 
-app.prepare().then(() => {
-  const server = express();
-  
-  // Middleware untuk JSON parsing
-  server.use(express.json());
-  
-  // MongoDB Connection
-  mongoose
-    .connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log("Database connected"))
-    .catch((err) => console.error(err));
+// MongoDB Connection
+mongoose
+  .connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log("Database connected"))
+  .catch((err) => console.error(err));
 
-  // API routes
-  server.use("/auth", authRoutes);
-  server.use("/user", userRoutes);
-  server.use("/items", itemRoutes);
+// Routes
+app.use("/auth", authRoutes);
+app.use("/user", userRoutes);
+app.use("/items", itemRoutes);
 
-  // Default route untuk Next.js pages
-  server.all("*", (req, res) => {
-    return handle(req, res);  // Next.js yang menangani rute lainnya
-  });
-
-  const PORT = process.env.PORT || 3000;
-  server.listen(PORT, (err) => {
-    if (err) throw err;
-    console.log(`Server running on port ${PORT}`);
-  });
-});
+// Start Server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
